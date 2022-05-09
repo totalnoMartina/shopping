@@ -1,0 +1,8 @@
+html {
+    background-color: rgba(81, 162, 243, 0.333);
+}
+
+.flex-container {
+    display: inline-flex;
+    gap: 0.9rem;
+}
