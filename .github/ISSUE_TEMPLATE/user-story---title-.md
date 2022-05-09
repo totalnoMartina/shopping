@@ -7,4 +7,4 @@ assignees: totalnoMartina
 
 ---
 
-As a **user/admin** I want to **capability** so that I can **receive benefit**
+As a **User/Admin** I want to **capability** so that I can **receive benefit**
