@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     # My apps
     'mainapp',
+    'profiles',
     #     'allauth.socialaccount.providers.facebook',
 
 ]
