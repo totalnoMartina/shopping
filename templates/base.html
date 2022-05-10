@@ -33,21 +33,33 @@
 </head>
 
 <body>
+    <div class="container mt-3 sticky-top">
+        <div class="row mx-auto">
+            <div class="col-4"></div>
+            <div class="col-2"></div>
+            <div class="col-6">
+                <form class="form-inline my-2">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-2" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
     <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand p-3 rounded bg-transparent" href="{% url 'home' %}">
             <h2 class="logo">
                 <img src="/media/logo-cact-ray-moon.png" style="height: 6rem; width: 6rem;" class="rounded-circle" alt="logo of creator">
                 Black Moon Designs
             </h2>
-        </a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse text-right bg-transparen" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="#">Shop Now!</a>
                 </li>
@@ -58,28 +70,24 @@
                     <div class="dropdown-menu text-right" aria-labelledby="navbarDropdown">
                         {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
-                        <a class="dropdown-item" href="{% url 'admin:index' %}">Management</a>
+                        <div class="text-right">
+                            <a class="dropdown-item" href="{% url 'admin:index' %}">Management</a></div>
                         {% endif %}
                         <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
                         {% else %}
                         <a class="dropdown-item" href="{% url 'account_signup' %}">Register</a>
                         <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+
                         {% endif %}
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'profile' %}">My profile</a>
                     </div>
                 </li>
-
             </ul>
-            <div class="col">
-
-            </div>
-            <form class="form-inline-end my-2 my-lg-0">
-                <input class="form-control-end rounded mr-sm-2 w-50" type="search" name="q" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
         </div>
     </nav>
+
+
 
 
     {% block content %}

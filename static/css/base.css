@@ -13,6 +13,17 @@ body {
     color: #f7cfa9;
 }
 
+.navbar a {
+    color: #422006;
+}
+
+.navbar a:hover {
+    color: #ddbcb2;
+}
+
+.sticky-top {
+    position: sticky;
+}
 
 nav {
     font-size: 1.8rem;
@@ -184,8 +195,13 @@ nav {
     opacity: 0;
 }
 
-@media (max-width: 650px) {
 
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
     .logo {
         font-size: smaller;
     }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {}
