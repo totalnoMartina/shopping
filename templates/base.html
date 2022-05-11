@@ -3,8 +3,6 @@
 <html lang="en">
 
 <head>
-
-
     {% block meta %}
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="utf-8">
@@ -33,42 +31,43 @@
 </head>
 
 <body>
-    <div class="container mt-3 sticky-top">
-        <div class="row mx-auto">
-            <div class="col-3"></div>
-            <div class="col-3"></div>
-            <div class="col-6">
-                <form class="form-inline my-2">
-                    <input class="form-control mr-sm-2" type="search" name="q" placeholder="Search" aria-label="Search">
-                    <button class="btn my-2 my-sm-2" type="submit">
-                        <span class="icon">
-                            <i class="fas fa-search"></i>
-                        </span>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-    <nav class="navbar navbar-expand-lg navbar-light">
+
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <a class="navbar-brand p-3 rounded bg-transparent" href="{% url 'home' %}">
             <h2 class="logo">
                 <img src="/media/logo-cact-ray-moon.png" style="height: 6rem; width: 6rem;" class="rounded-circle" alt="logo of creator">
                 Black Moon Designs
             </h2>
         </a>
+        <div class="container mt-3">
+            <div class="row mx-auto">
+                <div class="col-3"></div>
+                <div class="col-8 w-100">
+                    <form class="form-inline my-2">
+                        <input class="form-control mr-sm-2 " type="search" name="q" placeholder="Search" aria-label="Search">
+                        <button class="btn my-2 my-sm-2" type="submit">
+                            <span class="icon">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse text-right bg-transparen" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse text-right bg-transparent" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Shop Now!</a>
+                    <a class="nav-link" href="#">Shop Now! </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         My Account
+                        <i class="far fa-user-circle"></i>
                     </a>
                     <div class="dropdown-menu text-right" aria-labelledby="navbarDropdown">
                         {% if request.user.is_authenticated %}
@@ -87,13 +86,36 @@
                     </div>
                 </li>
             </ul>
+            {% if messages %}
+            <div class="message-container">
+                {% for message in messages %}
+                {% with message.level as level %}
+                {% if level == 40 %}
+                {% include 'includes/toasts/toast_error.html' %}
+                {% elif level == 30 %}
+                {% include 'includes/toasts/toast_warning.html' %}
+                {% elif level == 25 %}
+                {% include 'includes/toasts/toast_success.html' %}
+                {% else %}
+                {% include 'includes/toasts/toast_info.html' %}
+                {% endif %}
+                {% endwith %}
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
     </nav>
 
-
-
+    {% block page_header %}
+    {% endblock %}
 
     {% block content %}
+    {% endblock %}
+
+    {% block postloadjs %}
+    <script type="text/javascript">
+        $('.toast').toast('show');
+    </script>
     {% endblock %}
 
 </body>
