@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     # My apps
     'mainapp',
     'profiles',
+    'inventory',
+    'colorfield',
     #     'allauth.socialaccount.providers.facebook',
 
 ]
