@@ -13,6 +13,11 @@ body {
     color: #f7cfa9;
 }
 
+.btn:hover {
+    background-color: #b76a44 !important;
+
+}
+
 .navbar a {
     color: #422006;
 }
