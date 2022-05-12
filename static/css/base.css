@@ -4,6 +4,20 @@ html {
     scroll-behavior: smooth;
 }
 
+
+/* Set up for root colors for easier reusability through variables */
+:root {
+    --clr-primary--100: #F6E0DF;
+    --clr-primary--500: #965d30;
+    --clr-primary--900: #b76a44;
+    --clr-neutral--100: #e8a49a;
+    --clr-neutral--300: #ffbfbe;
+    --clr-neutral--500: #afadad;
+    --clr-neutral--900: #2a2b2e;
+    --fs: 1.4rem;
+    --br: 0.4em;
+}
+
 body {
     max-width: auto;
     background: linear-gradient(to top right, #965d30, #b76a44, #e8a49a, #ffbfbe) no-repeat;
@@ -14,7 +28,7 @@ body {
     background: -o-linear-gradient(to top right, #965d30, #b76a44, #e8a49a, #ffbfbe) no-repeat;
     background-size: cover;
     font-family: 'Libre Bodoni', serif;
-    color: #f7cfa9;
+    color: var(--clr-primary--300);
 }
 
 .btn:hover {
@@ -44,11 +58,23 @@ nav {
     position: fixed;
     bottom: 10px;
     right: 10px;
+    color: #f7cfa9;
 }
 
 .btt-button:hover {
     color: #422006;
     background-color: #f7cfa9;
+}
+
+.btt-link {
+    color: #f7cfa9;
+    background-color: #422006;
+}
+
+.btt-link:hover {
+    color: #422006;
+    background-color: #f7cfa9;
+
 }
 
 .btt-link,

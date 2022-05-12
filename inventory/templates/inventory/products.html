@@ -4,13 +4,12 @@
 {% block content %}
 
 <div class="container-fluid">
+
     <div class="row">
         <div class="col text-center mt-3">
             <h2 class="logo-font">Products</h2>
             <hr class="w-50 mb-1">
         </div>
-    </div>
-    <div class="row">
         <div class="product-container col-10 offset-1">
             <div class="row mb-3">
                 {% for product in products %}
@@ -67,7 +66,7 @@
         </div>
     </div>
 </div>
-<div class="btt-button shadow-sm rounded-0 border border-black">
+<div class="btt-button shadow-sm rounded border">
     <a class="btt-link d-flex h-100" href="#">
         <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
     </a>
