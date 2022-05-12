@@ -99,6 +99,8 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
